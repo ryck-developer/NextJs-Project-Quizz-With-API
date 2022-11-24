@@ -5,10 +5,7 @@ import styles from '../styles/Home.module.css';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function App() {
-  const { data, error } = useSWR(
-    'https://nextjsjqnqnm-1bvd--3000.local-corp.webcontainer.io/api/perguntas',
-    fetcher
-  );
+  const { data, error } = useSWR('/api/perguntas', fetcher);
 
   if (error) return 'An error has occurred.';
   if (!data) return 'Loading...';
