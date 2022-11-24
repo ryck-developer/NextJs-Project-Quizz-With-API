@@ -139,6 +139,7 @@
 }
 
 .alternativas {
+  width: 95%;
   color: #666;
   display: block;
   padding: 0.5rem 1rem;
@@ -152,6 +153,7 @@
   -o-transition: box-shadow.2s ease;
   transition: box-shadow.2s ease;
   margin: 5px;
+  text-align: left;
 }
 
 .jsxblackbutton {

@@ -7,26 +7,47 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function App() {
   const { data, error } = useSWR('/api/perguntas', fetcher);
 
+  function handleClick(e, a, cont) {
+    console.log(a);
+    console.log(cont);
+  }
+
   if (error) return 'An error has occurred.';
   if (!data) return 'Loading...';
 
   return data.questions.map((todo) => (
     <div className={styles.boxquestion}>
-      <p key={todo} className={styles.paragraph}>
-        {todo.pergunta}
+      <p className={styles.paragraph}>
+        {todo.id} - {todo.pergunta}
       </p>
-      <p key={todo} className={styles.alternativas}>
+
+      <button
+        className={styles.alternativas}
+        onClick={(e) => handleClick(e, 'a', todo.id)}
+      >
         A) {todo.respostas.a}
-      </p>
-      <p key={todo} className={styles.alternativas}>
+      </button>
+
+      <button
+        className={styles.alternativas}
+        onClick={(e) => handleClick(e, 'b', todo.id)}
+      >
         B) {todo.respostas.b}
-      </p>
-      <p key={todo} className={styles.alternativas}>
+      </button>
+
+      <button
+        className={styles.alternativas}
+        onClick={(e) => handleClick(e, 'c', todo.id)}
+      >
         C) {todo.respostas.c}
-      </p>
-      <p key={todo} className={styles.alternativas}>
+      </button>
+
+      <button
+        className={styles.alternativas}
+        onClick={(e) => handleClick(e, 'd', todo.id)}
+      >
         D) {todo.respostas.d}
-      </p>
+      </button>
       {/*<a className={styles.jsxblackbutton}>Próximo</a>*/}
     </div>
   ));
