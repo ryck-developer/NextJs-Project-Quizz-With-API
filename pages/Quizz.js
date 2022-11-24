@@ -11,7 +11,7 @@ export default function App() {
   if (!data) return 'Loading...';
 
   return data.questions.map((todo) => (
-    <div>
+    <div className={styles.boxquestion}>
       <p key={todo} className={styles.paragraph}>
         {todo.pergunta}
       </p>
@@ -27,7 +27,7 @@ export default function App() {
       <p key={todo} className={styles.alternativas}>
         D) {todo.respostas.d}
       </p>
-      <p>---------</p>
+      {/*<a className={styles.jsxblackbutton}>Próximo</a>*/}
     </div>
   ));
 }
